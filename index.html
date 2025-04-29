@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- Definisce il set di caratteri utilizzato nella pagina (UTF-8) -->
+    <meta charset="UTF-8">
+    <!-- Imposta la larghezza della pagina per adattarla al dispositivo con visualizzazione responsiva -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titolo della pagina che appare nella barra del browser -->
+    <title>Controllo Joystick</title>
+    <!-- Collega il foglio di stile CSS esterno -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Carica la libreria nipplejs per la gestione dei joystick -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.9.0/nipplejs.min.js"></script>
+</head>
+<body>
+    <!-- Titolo principale della pagina -->
+    <h1>Joystick</h1>
+
+    <!-- Contenitore principale per i due joystick -->
+    <div class="container">
+        <!-- Div per il primo joystick, con id 'joystick1' -->
+        <div id="joystick1" class="joystick1"></div>
+        <!-- Div per il secondo joystick, con id 'joystick2' -->
+        <div id="joystick2" class="joystick2"></div>
+    </div>
+
+    <!-- Contenitore per visualizzare la velocità e la direzione -->
+    <div class="velocita-direzione">
+        <!-- Blocco per visualizzare la velocità -->
+        <div class="velocita">
+            <p>Velocità: <span id="velocity">0</span></p>
+        </div>
+        <!-- Blocco per visualizzare la direzione -->
+        <div class="direzione">
+            <p>Direzione: <span id="direction">0°</span></p>
+        </div>
+    </div>
+
+    <!-- Carica il file JavaScript per il controllo dei joystick -->
+    <script src="script.js"></script>
+</body>
+</html>

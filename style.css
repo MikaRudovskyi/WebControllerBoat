@@ -1,0 +1,187 @@
+/* Imposta la font predefinita per il corpo della pagina */
+body {
+  font-family: 'Arial', sans-serif; /* Font sans-serif per tutto il corpo */
+  margin: 0; /* Rimuove i margini predefiniti */
+  height: 100vh; /* Imposta l'altezza della pagina al 100% dell'altezza della finestra */
+  display: flex; /* Usa il flexbox per il layout */
+  justify-content: center; /* Centra gli elementi orizzontalmente */
+  align-items: center; /* Centra gli elementi verticalmente */
+  background-color: #2c3e50; /* Imposta il colore di sfondo */
+  overflow: hidden; /* Nasconde eventuali contenuti che escono dai limiti */
+  flex-direction: column; /* Imposta la direzione del layout degli elementi come colonna */
+  gap: 30px; /* Aggiunge uno spazio tra gli elementi */
+}
+
+/* Definisce la disposizione del contenitore principale */
+.container {
+  display: flex; /* Usa il flexbox per il layout */
+  flex-direction: column; /* Dispone gli elementi in colonna */
+  align-items: center; /* Centra gli elementi orizzontalmente */
+  gap: 40px; /* Distanza tra gli elementi */
+}
+
+/* Stile per i due joystick */
+.joystick1,
+.joystick2 {
+  width: 25vw; /* Imposta la larghezza in percentuale rispetto alla larghezza della finestra */
+  height: 25vw; /* Imposta l'altezza in percentuale rispetto alla larghezza della finestra */
+  max-width: 250px; /* Imposta una larghezza massima */
+  max-height: 250px; /* Imposta un'altezza massima */
+  background: radial-gradient(circle, #34495e, #2c3e50); /* Crea uno sfondo con gradiente radiale */
+  border-radius: 50%; /* Rende l'elemento circolare */
+  display: flex; /* Usa il flexbox per il layout interno */
+  justify-content: center; /* Centra l'elemento orizzontalmente */
+  align-items: center; /* Centra l'elemento verticalmente */
+  position: relative; /* Rende possibile la posizione assoluta all'interno */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Aggiunge una ombra per l'effetto 3D */
+  transition: transform 0.2s ease; /* Aggiunge un'animazione di transizione per la trasformazione */
+}
+
+/* Effetto hover per ingrandire il joystick quando il cursore è sopra */
+.joystick1:hover,
+.joystick2:hover {
+  transform: scale(1.05); /* Ingrandisce il joystick */
+}
+
+/* Stile per la parte mobile del joystick (il "knob") */
+.joystick-knob {
+  width: 30%; /* Larghezza relativa al joystick */
+  height: 30%; /* Altezza relativa al joystick */
+  background-color: #4CAF50; /* Colore di sfondo */
+  border-radius: 50%; /* Rende il knob circolare */
+  position: absolute; /* Posizione assoluta all'interno del joystick */
+  top: 50%; /* Posiziona verticalmente al centro */
+  left: 50%; /* Posiziona orizzontalmente al centro */
+  transform: translate(-50%, -50%); /* Centra esattamente il knob */
+  cursor: pointer; /* Cambia il cursore quando sopra il knob */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Aggiunge un'ombra */
+  transition: all 0.1s ease; /* Aggiunge una transizione per l'effetto active */
+}
+
+/* Effetto quando il knob è premuto (attivo) */
+.joystick-knob:active {
+  background-color: #388E3C; /* Cambia colore quando premuto */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6); /* Cambia l'ombra quando premuto */
+}
+
+/* Stile per il titolo */
+h1 {
+  color: aliceblue; /* Colore del testo */
+  font-size: 2rem; /* Dimensione del font */
+  margin-bottom: 20px; /* Spazio sotto il titolo */
+}
+
+/* Contenitore per la velocità e la direzione */
+.velocita-direzione {
+  display: flex; /* Usa il flexbox per il layout */
+  justify-content: center; /* Centra gli elementi orizzontalmente */
+  gap: 40px; /* Distanza tra gli elementi */
+  width: 100%; /* Imposta la larghezza al 100% */
+}
+
+/* Stile per la velocità */
+.velocita,
+.direzione {
+  background-color: #34495e; /* Colore di sfondo */
+  padding: 20px; /* Aggiunge il padding interno */
+  border-radius: 10px; /* Rende gli angoli arrotondati */
+  color: #ecf0f1; /* Colore del testo */
+  width: 150px; /* Larghezza fissa */
+  text-align: center; /* Allinea il testo al centro */
+}
+
+/* Stile per il testo all'interno di velocità e direzione */
+.velocita p,
+.direzione p {
+  font-size: 20px; /* Dimensione del font */
+  margin: 0; /* Rimuove i margini */
+}
+
+/* Imposta il testo in grassetto per le velocità e le direzioni */
+.velocita span,
+.direzione span {
+  font-weight: bold; /* Testo in grassetto */
+  font-size: 22px; /* Dimensione del font */
+}
+
+/* Stile per la direzione con uno sfondo arancione */
+.direzione {
+  background-color: #e67e22; /* Colore di sfondo arancione */
+  padding: 20px; /* Padding interno */
+  border-radius: 10px; /* Angoli arrotondati */
+  height: 80px; /* Altezza fissa */
+}
+
+/* Media queries per dispositivi con larghezza massima di 768px */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column; /* Imposta la disposizione a colonna per schermi piccoli */
+    align-items: center; /* Allinea gli elementi al centro */
+  }
+
+  .joystick1,
+  .joystick2 {
+    width: 60vw; /* Larghezza del joystick al 60% della larghezza della finestra */
+    height: 60vw; /* Altezza del joystick al 60% della larghezza della finestra */
+  }
+
+  .velocita-direzione {
+    flex-direction: column; /* Dispone gli elementi in colonna */
+    gap: 20px; /* Distanza tra gli elementi */
+  }
+
+  .velocita,
+  .direzione {
+    width: 80%; /* Imposta la larghezza al 80% */
+  }
+
+  .velocita p,
+  .direzione p {
+    font-size: 16px; /* Riduce la dimensione del font */
+  }
+
+  .velocita span,
+  .direzione span {
+    font-size: 20px; /* Riduce la dimensione del font */
+  }
+}
+
+/* Media queries per dispositivi in modalità landscape */
+@media (orientation: landscape) and (max-width: 1024px) {
+  body {
+    flex-direction: row; /* Imposta la disposizione a riga */
+    justify-content: space-evenly; /* Spaziatura uniforme tra gli elementi */
+  }
+
+  .container {
+    flex-direction: row; /* Dispone i joystick in orizzontale */
+    gap: 50px; /* Aumenta la distanza tra i joystick */
+  }
+
+  .joystick1,
+  .joystick2 {
+    width: 20vw; /* Imposta la larghezza al 20% della larghezza della finestra */
+    height: 20vw; /* Imposta l'altezza al 20% della larghezza della finestra */
+  }
+
+  .velocita-direzione {
+    flex-direction: row; /* Dispone gli elementi in orizzontale */
+    gap: 30px; /* Distanza tra gli elementi */
+    justify-content: center; /* Centra gli elementi */
+  }
+
+  .velocita,
+  .direzione {
+    width: 120px; /* Imposta la larghezza fissa */
+  }
+
+  .velocita p,
+  .direzione p {
+    font-size: 14px; /* Riduce la dimensione del font */
+  }
+
+  .velocita span,
+  .direzione span {
+    font-size: 18px; /* Riduce la dimensione del font */
+  }
+}
